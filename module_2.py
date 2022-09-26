@@ -10,21 +10,24 @@ if __name__ == '__main__':
         my_list.append({random_letter: random_int})
 
     print(my_list)
-    result = {}
 
+    value_collection = {}
+    result = {}
     for idx, mini_dict in enumerate(my_list):
         key = list(mini_dict.keys())[0]
-
-        if key not in list(result.keys()):
-            result[key] = mini_dict[key]
+        if key not in value_collection:
+            value_collection[key] = [mini_dict[key]]
         else:
-            val = result[key]
-            val_i = mini_dict[key]
+            value_collection[key].append(mini_dict[key])
 
-            if val_i>val:
-                new_key = f"{key}_{idx}"
-                result.pop(key)
-                result[new_key] = val_i
+    for key in value_collection.keys():
+        if len(value_collection[key]) == 1:
+            result[key] = value_collection[key][0]
+        else:
+            max_value = max(value_collection[key])
+            new_key = my_list.index({key:max_value})
+            new_key = f'{key}_{new_key+1}'
+            result[new_key] = max_value
 
-    print("result: ",result)
+    print("result: ", result)
 
