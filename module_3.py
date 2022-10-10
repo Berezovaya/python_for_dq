@@ -26,13 +26,18 @@ def fix_capitalization(mystr):
     return '. '.join(newstr).replace(' i ', ' I ').replace(' iz ', ' is ')
 
 
-wrong_txt = get_last_word(wrong_txt)
-proper_txt = fix_capitalization(wrong_txt)
+def space_counter(txt):
+    space_count = 0
+    for i in txt:
+        if i in string.whitespace:
+            space_count += 1
+    return space_count
 
-space_count = 0
-for i in wrong_txt:
-    if i in string.whitespace:
-        space_count += 1
 
-print(proper_txt)
-print(space_count)
+if __name__ == '__main__':
+    wrong_txt = get_last_word(wrong_txt)
+    proper_txt = fix_capitalization(wrong_txt)
+    space_count = space_counter(wrong_txt)
+
+    print(proper_txt)
+    print(space_count)
