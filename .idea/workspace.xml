@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="824f6a9a-df22-4d43-83e6-cccc0a629081" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/module_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/module_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/module_3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +24,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2FG8jnaYsHTCWYQqCVeQEWkLGCJ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
