@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="824f6a9a-df22-4d43-83e6-cccc0a629081" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/python_for_dq.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python_for_dq.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/module_4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newsfeed.txt" beforeDir="false" afterPath="$PROJECT_DIR$/newsfeed.txt" afterDir="false" />
-    </list>
+    <list default="true" id="824f6a9a-df22-4d43-83e6-cccc0a629081" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +35,11 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Anna_Berezovaia/Documents/GitHub/python_for_dq&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Anna_Berezovaia\Documents\GitHub\python_for_dq" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="module_2" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="python_for_dq" />
