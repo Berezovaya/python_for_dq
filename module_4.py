@@ -64,6 +64,29 @@ class Joke(Post):
 
 
 if __name__ == '__main__':
-    News(txt='Something happened', city='London')
-    Ad(txt='I want to sell a bike', exp_date='01/03/2023')
-    Joke(txt="If I got 50 cents for every failed math exam, I'd have $6.30 now.", author="Vasya")
+    while True:
+        try:
+            choice = input("\n--------------What post do you want to add? Please, choose: \n1 - News\n2 - "
+                           "Advertising\n3 - Joke\n4 - Exit the program\n")
+            if choice == '1':
+                info = input('What happened? ')
+                city = input('Please specify the city: ')
+                News(txt=info, city=city)
+            elif choice == '2':
+                info = input('What do you want to sell? ')
+                exp_date = input('Till when? ')
+                Ad(txt=info, exp_date=exp_date)
+            elif choice == '3':
+                info = input('Tell us a joke! ')
+                author = input('What is your name? ')
+                Joke(txt=info, author=author)
+            elif choice == '4':
+                break
+            elif choice not in ['1', '2', '3', '4']:
+                raise Exception("\n---------------------You must enter a number (1 or 2 or 3). "
+                                "Press 4 to exit.----------------\n")
+        except Exception as err:
+            print(err)
+
+
+
