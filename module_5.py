@@ -1,5 +1,6 @@
 import datetime as dt
 import os
+import module_6 as m6
 
 
 class Post:
@@ -12,6 +13,9 @@ class Post:
         with open("newsfeed.txt", "a") as file1:
             file1.write('\n'.join(lines) + '\n')
             file1.write("------------------------------")
+
+        with open('newsfeed.txt', 'r') as file2:
+            m6.update_counts(file2)
 
     def add_line(self, header):
         line_length = 30 - len(header)

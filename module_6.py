@@ -85,8 +85,7 @@ def update_counts(file):
     write_lc(letter_cnt, upper_cnt, total_cnt)
 
 
-
-
-with open('newsfeed.txt', 'r') as file:
-    update_counts(file)
+if __name__ == '__main__':
+    with open('newsfeed.txt', 'r') as file:
+        update_counts(file)
 
