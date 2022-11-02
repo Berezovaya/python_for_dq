@@ -74,7 +74,7 @@ def write_lc(letter_cnt, upper_cnt, total_cnt):
             writer.writerow(row)
 
 
-def update_wordcount(file):
+def update_counts(file):
     lines = file.read()
     word_cnt = word_count(lines)
     write_wc(word_cnt)
@@ -88,5 +88,5 @@ def update_wordcount(file):
 
 
 with open('newsfeed.txt', 'r') as file:
-    update_wordcount(file)
+    update_counts(file)
 
