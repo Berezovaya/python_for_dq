@@ -1,5 +1,14 @@
-{
-  "choice": "2",
-  "info": "bike",
-  "additional_info": "01/03/2021"
-}
+[
+  {
+    "choice": "2",
+    "info": "bike_new",
+    "additional_info": "01/03/2023"
+  },
+
+  {
+    "choice": "2",
+    "info": "bike_new",
+    "additional_info": "01/03/2023"
+  }
+
+]

@@ -1,3 +1,4 @@
+import xml.etree.ElementTree as ET
 import datetime as dt
 import os
 import sys
@@ -133,11 +134,41 @@ class JsonReader:
             os.remove(self.file_path)
 
 
+class XMLReader:
+    def __init__(self, file_path):
+        self.file_path = file_path
+        self.data = None
+        self.read_file()
+        self.process_lines()
+
+    def read_file(self):
+        self.data = ET.parse(self.file_path)
+
+    def process_lines(self):
+        try:
+            for entry in self.data.getroot():
+                choice = entry.find('choice').text
+                info = entry.find('info').text
+                additional_info = entry.find('additional_info').text
+                if choice == '1':
+                    News(txt=info, city=additional_info)
+                elif choice == '2':
+                    Ad(txt=info, exp_date=additional_info)
+                elif choice == '3':
+                    Joke(txt=info, author=additional_info)
+                elif entry['choice'] not in ['1', '2', '3']:
+                    raise Exception("\n---------------------Input file is not correct----------------\n")
+        except Exception as err:
+            print(err)
+        else:
+            os.remove(self.file_path)
+
+
 if __name__ == '__main__':
     while True:
         try:
             choice = input("\n--------------What post do you want to add? Please, choose: \n1 - News\n2 - "
-                           "Advertising\n3 - Joke\n4 - Import txt file\n5 - Import json file\n6 - Exit the program\n")
+                           "Advertising\n3 - Joke\n4 - Import txt file\n5 - Import json file\n6 - Import XML file\n7 - Exit the program\n")
             if choice == '1':
                 info = input('What happened? ')
                 city = input('Please specify the city: ')
@@ -169,10 +200,21 @@ if __name__ == '__main__':
                     raise Exception("\n---------------------You must enter y or n----------------\n")
                 JsonReader(file_path=info)
             elif choice == '6':
+                default_value = input('Should we use default input file? (y/n): ')
+                if default_value.lower() == 'n':
+                    info = input('Enter path to file: ')
+                elif default_value.lower() == 'y':
+                    info = 'input/input.xml'
+                else:
+                    raise Exception("\n---------------------You must enter y or n----------------\n")
+                XMLReader(file_path=info)
+            elif choice == '7':
                 break
-            elif choice not in ['1', '2', '3', '4', '5', '6']:
+            elif choice not in ['1', '2', '3', '4', '5', '6', '7']:
                 raise Exception("\n---------------------You must enter a number (1 or 2 or 3 or 4). "
                                 "Press 5 to exit.----------------\n")
         except Exception as err:
             print(err)
+
+
 

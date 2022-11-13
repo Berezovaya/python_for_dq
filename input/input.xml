@@ -1,0 +1,12 @@
+<Root>
+    <Entry>
+		<choice>2</choice>
+		<info>bike_new</info>
+		<additional_info>01/03/2023</additional_info>
+	</Entry>
+	<Entry>
+		<choice>2</choice>
+		<info>bike_new</info>
+		<additional_info>01/03/2023</additional_info>
+	</Entry>
+</Root>
