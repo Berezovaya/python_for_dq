@@ -1,6 +1,7 @@
 import datetime as dt
 import os
 import sys
+import json
 import module_6 as m6
 from module_3 import fix_capitalization
 
@@ -99,8 +100,43 @@ class TextReader:
                 elif choice not in ['1', '2', '3']:
                     raise Exception("\n---------------------Input file is not correct----------------\n")
         except Exception as err:
+            os.exit(err)
+        else:
+            os.remove(self.file_path)
+
+
+class JsonReader:
+    def __init__(self, file_path):
+        self.file_path = file_path
+        self.choice = None
+        self.info = None
+        self.additional_info = None
+        self.read_file()
+        self.process_lines()
+
+    def read_file(self):
+        with open(self.file_path, 'r') as json_file:
+            data = json.load(json_file)
+            print(data)
+            try:
+                self.choice = data['choice']
+                self.info = data['info']
+                self.additional_info = data['additional_info']
+            except KeyError:
+                print("Wrong input format")
+
+    def process_lines(self):
+        try:
+            if self.choice == '1':
+                News(txt=self.info, city=self.additional_info)
+            elif self.choice == '2':
+                Ad(txt=self.info, exp_date=self.additional_info)
+            elif self.choice == '3':
+                Joke(txt=self.info, author=self.additional_info)
+            elif self.choice not in ['1', '2', '3']:
+                raise Exception("\n---------------------Input file is not correct----------------\n")
+        except Exception as err:
             print(err)
-            os.exit()
         else:
             os.remove(self.file_path)
 
@@ -109,7 +145,7 @@ if __name__ == '__main__':
     while True:
         try:
             choice = input("\n--------------What post do you want to add? Please, choose: \n1 - News\n2 - "
-                           "Advertising\n3 - Joke\n4 - Import file\n5 - Exit the program\n")
+                           "Advertising\n3 - Joke\n4 - Import txt file\n5 - Import json file\n6 - Exit the program\n")
             if choice == '1':
                 info = input('What happened? ')
                 city = input('Please specify the city: ')
@@ -132,12 +168,19 @@ if __name__ == '__main__':
                     raise Exception("\n---------------------You must enter y or n----------------\n")
                 TextReader(file_path=info)
             elif choice == '5':
+                default_value = input('Should we use default input file? (y/n): ')
+                if default_value.lower() == 'n':
+                    info = input('Enter path to file: ')
+                elif default_value.lower() == 'y':
+                    info = 'input/input.json'
+                else:
+                    raise Exception("\n---------------------You must enter y or n----------------\n")
+                JsonReader(file_path=info)
+            elif choice == '6':
                 break
-            elif choice not in ['1', '2', '3', '4', '5']:
+            elif choice not in ['1', '2', '3', '4', '5', '6']:
                 raise Exception("\n---------------------You must enter a number (1 or 2 or 3 or 4). "
                                 "Press 5 to exit.----------------\n")
         except Exception as err:
             print(err)
-
-
 
