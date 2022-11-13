@@ -1,6 +1,7 @@
 import datetime as dt
 import os
 import module_6 as m6
+from module_3 import fix_capitalization
 
 
 class Post:
@@ -34,7 +35,7 @@ class News(Post):
         self.footer = f'{self.city}, {dt.datetime.now().strftime("%m/%d/%Y %H.%M")}'
 
     def post(self):
-        super().post(self.header, self.txt, self.footer)
+        super().post(self.header, fix_capitalization(self.txt), self.footer)
 
 
 class Ad(Post):
@@ -46,11 +47,17 @@ class Ad(Post):
         self.post()
 
     def add_date(self):
-        self._date_diff = dt.datetime.strptime(self.exp_date, '%m/%d/%Y').date() - dt.date.today()
-        self.footer = f'Actual until: {self.exp_date}, {self._date_diff.days} days left'
+        try:
+            self._date_diff = dt.datetime.strptime(self.exp_date, '%m/%d/%Y').date() - dt.date.today()
+            if self._date_diff < 0:
+                raise Exception("\n---------------------Expiration date in the past----------------\n")
+            else:
+                self.footer = f'Actual until: {self.exp_date}, {self._date_diff.days} days left'
+        except Exception as err:
+            print(err)
 
     def post(self):
-        super().post(self.header, self.txt, self.footer)
+        super().post(self.header, fix_capitalization(self.txt), self.footer)
 
 
 class Joke(Post):
@@ -65,7 +72,7 @@ class Joke(Post):
         self.footer = f'Author: {self.author}'
 
     def post(self):
-        super().post(self.header, self.txt, self.footer)
+        super().post(self.header, fix_capitalization(self.txt), self.footer)
 
 
 class TextReader:
@@ -109,14 +116,20 @@ if __name__ == '__main__':
                 News(txt=info, city=city)
             elif choice == '2':
                 info = input('What do you want to sell? ')
-                exp_date = input('Till when? ')
+                exp_date = input('Till what date should the advertisement stay? ')
                 Ad(txt=info, exp_date=exp_date)
             elif choice == '3':
                 info = input('Tell us a joke! ')
                 author = input('What is your name? ')
                 Joke(txt=info, author=author)
             elif choice == '4':
-                info = input('Enter path to file: ')
+                default_value = input('Should we use default input file? (y/n): ')
+                if default_value.lower() == 'n':
+                    info = input('Enter path to file: ')
+                elif default_value.lower() == 'y':
+                    info = 'input/input.txt'
+                else:
+                    raise Exception("\n---------------------You must enter y or n----------------\n")
                 TextReader(file_path=info)
             elif choice == '5':
                 break

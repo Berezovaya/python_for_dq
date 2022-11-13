@@ -2,6 +2,7 @@ import string
 import re
 import csv
 
+
 def word_count(str):
     counts = dict()
     words = str.lower()
