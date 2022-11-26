@@ -4,6 +4,7 @@ import os
 import sys
 import json
 import module_6 as m6
+import module_9 as m9
 from module_3 import fix_capitalization
 
 
@@ -39,6 +40,7 @@ class News(Post):
 
     def post(self):
         super().post(self.header, fix_capitalization(self.txt), self.footer)
+
 
 
 class Ad(Post):
