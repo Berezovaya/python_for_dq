@@ -144,7 +144,7 @@ if __name__ == '__main__':
                 News(txt=info, city=city)
             elif choice == '2':
                 info = input('What do you want to sell? ')
-                exp_date = input('Till what date should the advertisement stay? MM/DD/YYYY ')
+                exp_date = input('Till what date should the advertisement stay? (format DD/MM/YYYY) ')
                 Ad(txt=info, exp_date=exp_date)
             elif choice == '3':
                 info = input('Tell us a joke! ')
@@ -173,6 +173,8 @@ if __name__ == '__main__':
             elif choice not in ['1', '2', '3', '4', '5', '6']:
                 raise Exception("\n---------------------You must enter a number (1 or 2 or 3 or 4). "
                                 "Press 5 to exit.----------------\n")
+            if choice in ['1', '2', '3', '4', '5']:
+                print('News have been published successfully')
         except Exception as err:
             print(err)
 

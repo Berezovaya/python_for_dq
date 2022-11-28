@@ -177,7 +177,7 @@ if __name__ == '__main__':
                 News(txt=info, city=city)
             elif choice == '2':
                 info = input('What do you want to sell? ')
-                exp_date = input('Till what date should the advertisement stay? (format DD/MM/YYYY')
+                exp_date = input('Till what date should the advertisement stay? (format DD/MM/YYYY)')
                 Ad(txt=info, exp_date=exp_date)
             elif choice == '3':
                 info = input('Tell us a joke! ')
