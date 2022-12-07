@@ -126,7 +126,7 @@ class TextReader:
                 elif choice not in ['1', '2', '3']:
                     raise Exception("\n---------------------Input file is not correct----------------\n")
         except Exception as err:
-            os.exit(err)
+            sys.exit(err)
         else:
             os.remove(self.file_path)
 
